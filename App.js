@@ -7,6 +7,7 @@ import {
   Image,
   View,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import Button from "./src/components/Button";
 import IllustrationComp from "./src/components/IllustrationComp";
@@ -14,83 +15,85 @@ import IllustrationComp from "./src/components/IllustrationComp";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar />
-      <View style={styles.header}>
-        <View style={{ margin: 24, marginTop: 48 }}>
-          <View style={styles.menu}>
-            <Image source={require("./assets/menu.png")} />
-            <Image source={require("./assets/bell.png")} />
-          </View>
+      <StatusBar style="light" />
+      <ScrollView>
+        <View style={styles.header}>
+          <View style={{ margin: 24, marginTop: 48 }}>
+            <View style={styles.menu}>
+              <Image source={require("./assets/menu.png")} />
+              <Image source={require("./assets/bell.png")} />
+            </View>
 
-          <View style={styles.titleContainer}>
-            <Text style={styles.countryButtonText}>Covid-19</Text>
-            <TouchableOpacity style={styles.countryButton}>
-              <View style={styles.countryButtonWrapper}>
-                <Image
-                  style={{ marginRight: 10 }}
-                  source={require("./assets/usa-new.png")}
+            <View style={styles.titleContainer}>
+              <Text style={styles.countryButtonText}>Covid-19</Text>
+              <TouchableOpacity style={styles.countryButton}>
+                <View style={styles.countryButtonWrapper}>
+                  <Image
+                    style={{ marginRight: 10 }}
+                    source={require("./assets/usa-new.png")}
+                  />
+                  <Text style={{ marginLeft: 5, fontWeight: "bold" }}>USA</Text>
+                  <Image
+                    source={require("./assets/dropdown.png")}
+                    style={{ marginLeft: 10 }}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerContent}>
+              <Text style={styles.feelingSickTitle}>Are you feeling sick?</Text>
+
+              <Text style={styles.feelingSickText}>
+                If you feel sick with any of covid-19 symptoms please call or
+                SMS us immediately for help.
+              </Text>
+
+              <View style={styles.btnWrapper}>
+                <Button
+                  icon={require("./assets/phone.png")}
+                  title="Call Now"
+                  backgroundColor="#FF4D58"
                 />
-                <Text style={{ marginLeft: 5, fontWeight: "bold" }}>USA</Text>
-                <Image
-                  source={require("./assets/dropdown.png")}
-                  style={{ marginLeft: 10 }}
+                <Button
+                  icon={require("./assets/message-circle.png")}
+                  title="Send SMS"
+                  backgroundColor="#4D79FF"
                 />
               </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.headerContent}>
-            <Text style={styles.feelingSickTitle}>Are you feeling sick?</Text>
-
-            <Text style={styles.feelingSickText}>
-              If you feel sick with any of covid-19 symptoms please call or SMS
-              us immediately for help.
-            </Text>
-
-            <View style={styles.btnWrapper}>
-              <Button
-                icon={require("./assets/phone.png")}
-                title="Call Now"
-                backgroundColor="#FF4D58"
-              />
-              <Button
-                icon={require("./assets/message-circle.png")}
-                title="Send SMS"
-                backgroundColor="#4D79FF"
-              />
             </View>
           </View>
         </View>
-      </View>
 
-      <View style={styles.content}>
-        <View style={{ marginTop: 32 }}>
-          <Text style={styles.prevention}>Prevention</Text>
-        </View>
+        <View style={styles.content}>
+          <View style={{ marginTop: 32 }}>
+            <Text style={styles.prevention}>Prevention</Text>
+          </View>
 
-        <View style={styles.illustrationContainer}>
-          <IllustrationComp
-            image={require("./assets/illustration1.png")}
-            text="Avoid close contact"
-          />
-          <IllustrationComp
-            image={require("./assets/illustration2.png")}
-            text="Clean your hands often"
-          />
-          <IllustrationComp
-            image={require("./assets/illustration3.png")}
-            text={`Wear a\nfacemask `}
-          />
-        </View>
+          <View style={styles.illustrationContainer}>
+            <IllustrationComp
+              image={require("./assets/illustration1.png")}
+              text="Avoid close contact"
+            />
+            <IllustrationComp
+              image={require("./assets/illustration2.png")}
+              text="Clean your hands often"
+            />
+            <IllustrationComp
+              image={require("./assets/illustration3.png")}
+              text={`Wear a\nfacemask `}
+            />
+          </View>
 
-        <View>
-          <Image
-            source={require("./assets/guide.png")}
-            style={{ alignSelf: "center", marginTop: 32, width: "100%" }}
-            resizeMode="contain"
-          />
+          <View style={{ paddingBottom: 36 }}>
+            <Image
+              source={require("./assets/guide.png")}
+              style={{ alignSelf: "center", marginTop: 32, width: "100%" }}
+              resizeMode="contain"
+            />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
